@@ -16,5 +16,5 @@ def submit():
     return render_template('index.html', s = score)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug = False)
     # app.run(debug=True, port = 8000)
