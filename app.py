@@ -1,5 +1,6 @@
 from flask import Flask , render_template, request
 from flask_sqlalchemy import SQLAlchemy
+import os
 import game as g
 
 app = Flask(__name__)
@@ -16,7 +17,6 @@ def submit():
     return render_template('submit.html', s = score)
 
 if __name__ == '__main__':
-    # app.run(debug = False)
-    # app.run(debug=True, port = 8000)
-    # app.run()
-    app.run(debug=True, port = 8000)
+     app.debug = False
+     port = int(os.environ.get('PORT', 33507))
+     waitress.serve(app, port=port)
