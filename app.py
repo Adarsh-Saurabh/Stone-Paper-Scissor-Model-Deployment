@@ -17,6 +17,8 @@ def submit():
     return render_template('submit.html', s = score)
 
 if __name__ == '__main__':
-     app.debug = False
-     port = int(os.environ.get('PORT', 33507))
-     waitress.serve(app, port=port)
+    # app.run(debug = False)
+    # app.run(debug=True, port = 8000)
+    # app.run()
+    app.run(debug=False, port = 8000)
+    
