@@ -16,10 +16,7 @@ def submit():
     return render_template('submit.html', s = score)
 
 if __name__ == '__main__':
-<<<<<<< Updated upstream
-    app.run(debug = False)
+    # app.run(debug = False)
     # app.run(debug=True, port = 8000)
-=======
     # app.run()
     app.run(debug=True, port = 8000)
->>>>>>> Stashed changes
