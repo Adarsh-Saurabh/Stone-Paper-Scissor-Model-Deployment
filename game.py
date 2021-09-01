@@ -11,9 +11,16 @@ def game(player):
     else:
         return "Invalid Input!"
     if (player == 1 and rand == 1) or (player == 2 and rand == 2) or (player == 3 and rand == 3):
-        return "Draw"
+        points += 0
+        return "Draw" 
     elif (player == 2 and rand == 1) or (player == 3 and rand == 2) or (player == 1 and rand == 3):
-        return "You Won!"
+        points += 1
+        return "You Won!" 
     elif (player == 1 and rand == 2) or (player == 2 and rand == 3) or (player == 3 and rand == 1):
+        points -= 1
         return "Lost!"
+
+
+
+
 

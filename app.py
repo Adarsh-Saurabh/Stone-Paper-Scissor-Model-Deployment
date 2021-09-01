@@ -13,12 +13,10 @@ def index():
 def submit():
     if request.method == "POST":
         value = request.form["value"]
-        score = str(g.game(value))
-    return render_template('submit.html', s = score)
+        score = g.game(value)
+        total_score += points
+
+    return render_template('index.html', s = score , total_score = total_score)
 
 if __name__ == '__main__':
-    # app.run(debug = False)
-    # app.run(debug=True, port = 8000)
-    # app.run(host = '0.0.0.0', port = 88)
     app.run()
-    # app.run(debug=False, port = 8000)
