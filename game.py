@@ -18,3 +18,7 @@ def game(player):
     elif (player == 1 and rand == 2) or (player == 2 and rand == 3) or (player == 3 and rand == 1):
         return "You Lost!", -1
 
+
+
+
+
