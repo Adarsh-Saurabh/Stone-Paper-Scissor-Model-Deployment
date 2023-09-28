@@ -3,6 +3,6 @@ This is my first ever model deployment. I made a stone paper scissor game using 
 
 
 
-* [Click here:](https://stone-paper-scissor-game.herokuapp.com/)
+* [Click here:](https://stone-paper-scissor-game.onrender.com/)
 
 Enjoy!
