@@ -89,7 +89,7 @@ Follow these steps to create a pull request (PR) in this repository and contribu
 
 
 
-## 5. Celebrate - you've done your first pull request!!
+## Celebrate - you've done your first pull request!!
 
 ```py
 '''
@@ -110,3 +110,6 @@ Keep in mind that the repo has hacktoberfest topic.
 <tr><td align="center"><a href="https://github.com/Adarsh-Saurabh"><kbd><img src="https://avatars3.githubusercontent.com/Adarsh-Saurabh?size=100" width="100px;" alt=""/></kbd><br /><sub><b>Adarsh Saurabh</b></sub></a><br /></td>
 
 </tr>
+
+
+
