@@ -1,4 +1,4 @@
-#[!Check the Live Project by Clicking here!](https://stone-paper-scissor-game.onrender.com/)
+# [!Check the Live Project by Clicking here!](https://stone-paper-scissor-game.onrender.com/)
 
 ## HacktoberFest 2023 `OPEN FIRST` Pull Request - `FREE T-SHIRT`🎉
 ![HacktoberFest 2023](https://github.com/ossamamehmood/Hacktoberfest2023/raw/main/.github/logo.png)
