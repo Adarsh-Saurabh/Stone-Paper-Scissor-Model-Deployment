@@ -22,9 +22,9 @@ def submit():
         points = str(point)
     return render_template('index.html', s = score, p = points)
 
-if __name__ == '__main__':
-    # app.run(debug = False)
-    # app.run(debug=True, port = 8000)
-    # app.run(host = '0.0.0.0', port = 88)
-    app.run(debug=False)
-    # app.run(debug=False, port = 8000)
+# if __name__ == '__main__':
+#     # app.run(debug = False)
+#     # app.run(debug=True, port = 8000)
+#     # app.run(host = '0.0.0.0', port = 88)
+#     app.run(debug=False)
+#     # app.run(debug=False, port = 8000)
