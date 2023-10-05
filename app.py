@@ -18,13 +18,19 @@ def submit():
         value = request.form["value"]
         scores = g.game(value)
         score = str(scores[0])
-        point += scores[1]
-        points = str(point)
+        if score == "You Lost!":
+            points = "0"
+            point = 0
+        else:
+            point += scores[1]
+            points = str(point)
     return render_template('index.html', s = score, p = points)
 
-# if __name__ == '__main__':
-#     # app.run(debug = False)
-#     # app.run(debug=True, port = 8000)
-#     # app.run(host = '0.0.0.0', port = 88)
-#     app.run(debug=False)
-#     # app.run(debug=False, port = 8000)
+
+
+if __name__ == '__main__':
+    # app.run(debug = False)
+    # app.run(debug=True, port = 8000)
+    # app.run(host = '0.0.0.0', port = 88)
+    app.run(debug=False)
+    # app.run(debug=False, port = 8000)
