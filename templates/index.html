@@ -12,57 +12,11 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
   <script src="https://kit.fontawesome.com/d59016f14e.js" crossorigin="anonymous"></script>
 
   <title>Stone Paper Scissor</title>
-  <style>
-    body {
-      background: #d7ecf3;
-    }
-
-    h1 {
-      font-size: 72px;
-      font-family: 'Roboto Mono', monospace;
-      font-weight: 900;
-    }
-
-    h2 {
-      font-size: 48px;
-    }
-
-    form label,
-    form input[type="submit"] {
-      border: 1px solid green;
-      background: lightcoral;
-      color: gold;
-      padding: 5px 10px;
-      margin: 5px;
-    }
-
-    form input[type="submit"] {
-      background: green;
-      border: 1px solid red;
-      padding: 5px 20px
-    }
-
-    footer {
-      background: brown;
-      color: white;
-      padding: 50px 0;
-    }
-
-    .fa-gem {
-      color: blue;
-    }
-
-    .fa-scroll {
-      color: white;
-    }
-
-    .fa-hand-scissors {
-      color: brown;
-    }
-  </style>
 </head>
 
 <body>
@@ -94,7 +48,7 @@
     <h3>Choose One</h3>
 
 
-    <form action="/submit" method="POST" onsubmit="return 0">
+    <form action="/submit" method="POST" onsubmit="return validateForm()">
       <input type="radio" name="value" value="s" id="stone">
       <label for="stone"><span class="fas fa-gem"></span> Stone</label>
       <input type="radio" name="value" value="p" id="paper">
@@ -122,7 +76,7 @@
       <p> Your score is </p>
       {% print(p) %}
 
-    {% endif %}
+      {% endif %}
     </div>
 
     <footer class="text-center contaner-fluid">
@@ -147,6 +101,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"></script>
-</body>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
 
 </html>
