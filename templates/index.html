@@ -1,107 +1,108 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Poppins:wght@400&family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/d59016f14e.js" crossorigin="anonymous"></script>
+    <title>Stone Paper Scissor</title>
+    <style>
+        body {
+            padding-top: 20px;
+            font-family: 'Roboto Mono', monospace;
+            background: linear-gradient(90deg,#4383c3 40%,#30b4cb 60%);
+        }
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+        #title {
+            color: #ffffff;
+            font-size: 4rem;
+            font-family: 'Inter', sans-serif;
+        }
+        h3 {
+            color: #ffffff;
+            font-size: 3rem;
+        }
+        p {
+            font-family: 'Poppins', sans-serif;
+            color: #e2e2e2;
+        }
+        footer {
+            background: linear-gradient(90deg,#2c5986 40%,#197281 60%);
+            color: white;
+            padding: 50px 0;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            border-top: 2px solid black;
+        }
 
-  <script src="https://kit.fontawesome.com/d59016f14e.js" crossorigin="anonymous"></script>
+        footer a{
+            color: #dcd935;
+        }
+        .score {
+            font-size: 5rem;
+            font-weight: 600;
+            color: #d64400;
+        }
+        .conditionals span {
+            color: #dcd935;
+        }
 
-  <title>Stone Paper Scissor</title>
+        label img{
+            width: 100px;
+        }
+    </style>
 </head>
-
 <body>
-
-  <div class="container text-center">
-    <div class="row">
-
-      <h1 class="m-auto p-3 border border-success">Stone Paper Scissor</h1>
-      <div class="container">
-      </div>
-    </div>
-    <div class="container">
-
-      <div class="row">
-        <div class="col-md-12">
-
-          <h2>Welcome to the game</h2>
-          <p>Here you are playing against the computer
-            We used a pseudo AI for this game
-            This AI will play against you
-            Let's see who's gonna win this game
-          </p>
-          <p>Good luck!</p>
-
+    <div class="container text-center">
+        <div class="row">
+            <div class="m-auto p-3" id="title">Stone Paper Scissor</div>
         </div>
-      </div>
+        <hr>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p>Here you are playing against the computer. We used a pseudo AI for this game. This AI will play against you. Let's see who's gonna win this game. Good luck!</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <h3 class="p-3">Choose One</h3>
+        <form action="/submit" method="POST">
+            <input type="radio" name="value" value="s" id="stone">
+            <label for="stone" class="me-5"><img src="https://freesvg.org/img/misc-dullite.png" alt=""></label>
+            <input type="radio" name="value" value="p" id="paper">
+            <label for="paper" class="ms-3 me-5"><img src="https://assets.stickpng.com/thumbs/5c434c10e39d5d01c21da943.png" alt=""></label>
+            <input type="radio" name="value" value="x" id="scissor">
+            <label for="scissor" class="ms-4"><img src="https://clipart-library.com/images_k/scissors-clipart-transparent/scissors-clipart-transparent-4.png" alt=""></label>
+            <br>
+            <input type="submit" class="btn btn-success m-4" value="Play">
+        </form>
+        <div class="container-fluid conditionals">
+            {% if s %}
+                {%if s == "You Won!" %}
+                    <span>Congratulations! </span>
+                {% elif s == "You Lost!" %}
+                    <span>Oooopss!</span>
+                {% endif %}
+                {% print(s) %}
+                <p>Your score is</p>
+                <div class="score">{{p}}</div>
+            {% endif %}
+        </div>
+        <footer class="text-center container-fluid">
+            <span>Do open-source contribution </span>
+            <a href="https://github.com/Adarsh-Saurabh/Stone-Paper-Scissor-Model-Deployment.git" target="_blank">here!</a>
+        </footer>
     </div>
-
-    <h3>Choose One</h3>
-
-
-    <form action="/submit" method="POST" onsubmit="return validateForm()">
-      <input type="radio" name="value" value="s" id="stone">
-      <label for="stone"><span class="fas fa-gem"></span> Stone</label>
-      <input type="radio" name="value" value="p" id="paper">
-      <label for="paper"><span class="fas fa-scroll"></span> Paper</label>
-      <input type="radio" name="value" value="x" id="scissor">
-      <label for="scissor"><span class="fas fa-hand-scissors"></span> Scissor</label>
-      <br>
-      <input type="submit" value="Submit">
-    </form>
-
-    <!-- <br><br> -->
-
-    <div class="container-fluid conditonals">
-      {% if s %}
-
-      {%if s == "You Won!" %}
-      <span>Congratulations! </span>
-
-      {% elif s == "You Lost!" %}
-      <span>Oooopss!</span>
-
-      {% endif %}
-
-      {% print(s) %}
-      <p> Your score is </p>
-      {% print(p) %}
-
-      {% endif %}
-    </div>
-
-    <footer class="text-center contaner-fluid">
-      <span>Do open source contribution </span>
-      <a href="https://github.com/Adarsh-Saurabh/Stone-Paper-Scissor-Model-Deployment.git" target="_blank">here!</a>
-    </footer>
-
-
-
-    <!-- <button type="button" class="btn btn-secondary">Stone</button>
-    <button type="button" class="btn btn-primary">Paper</button>
-    <button type="button" class="btn btn-success">Scissor</button>  -->
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"></script>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-
-
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
 </html>
