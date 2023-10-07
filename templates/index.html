@@ -32,17 +32,15 @@
             font-family: 'Poppins', sans-serif;
             color: #e2e2e2;
         }
-        footer {
-            background: linear-gradient(90deg,#2c5986 40%,#197281 60%);
+        .footer {
+            width: 100%;
             color: white;
-            padding: 50px 0;
             position: fixed;
             bottom: 0;
             left: 0;
-            border-top: 2px solid black;
         }
 
-        footer a{
+        .footer a{
             color: #dcd935;
         }
         .score {
@@ -76,11 +74,11 @@
         <h3 class="p-3">Choose One</h3>
         <form action="/submit" method="POST">
             <input type="radio" name="value" value="s" id="stone">
-            <label for="stone" class="me-5"><img src="https://freesvg.org/img/misc-dullite.png" alt=""></label>
+            <label for="stone" class="me-5"><img src="{{ url_for('static', filename='img/rock.png') }}" alt="rock"></label>
             <input type="radio" name="value" value="p" id="paper">
-            <label for="paper" class="ms-3 me-5"><img src="https://assets.stickpng.com/thumbs/5c434c10e39d5d01c21da943.png" alt=""></label>
+            <label for="paper" class="ms-3 me-5"><img src="{{ url_for('static', filename='img/paper.png') }}" alt="paper"></label>
             <input type="radio" name="value" value="x" id="scissor">
-            <label for="scissor" class="ms-4"><img src="https://clipart-library.com/images_k/scissors-clipart-transparent/scissors-clipart-transparent-4.png" alt=""></label>
+            <label for="scissor" class="ms-4"><img src="{{ url_for('static', filename='img/scissor.png') }}" alt="scissor"></label>
             <br>
             <input type="submit" class="btn btn-success m-4" value="Play">
         </form>
@@ -96,10 +94,10 @@
                 <div class="score">{{p}}</div>
             {% endif %}
         </div>
-        <footer class="text-center container-fluid">
+        <div class="footer text-center pt-3 pb-5">
             <span>Do open-source contribution </span>
             <a href="https://github.com/Adarsh-Saurabh/Stone-Paper-Scissor-Model-Deployment.git" target="_blank">here!</a>
-        </footer>
+        </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
