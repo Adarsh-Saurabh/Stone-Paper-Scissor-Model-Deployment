@@ -22,6 +22,7 @@ def submit():
     scores = g.game(value)
     score = str(scores[0])
     
+    choice = {1:"rock", 2:"paper", 3:"scissor"}
     if score == "You Lost!":
         points = "0"
         point = 0
@@ -29,7 +30,7 @@ def submit():
         point += scores[1]
         points = str(point)
         
-    return render_template('index.html', s=score, p=points)
+    return render_template('index.html', s=score, p=points, you=choice[scores[2]], cpu=choice[scores[3]])
 
 
 if __name__ == '__main__':

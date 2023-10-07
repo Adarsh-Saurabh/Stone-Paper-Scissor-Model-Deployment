@@ -84,6 +84,10 @@
         </form>
         <div class="container-fluid conditionals">
             {% if s %}
+                <div class="mt-1 mb-4">
+                    <span class="me-4">You: <img src="{{ url_for('static', filename='img/' + you + '.png') }}" alt="{{you}}" style="width: 50px;"></span>
+                    <span>CPU: <img src="{{ url_for('static', filename='img/' + cpu + '.png') }}" alt="{{cpu}}" style="width: 50px;"></span>
+                </div>
                 {%if s == "You Won!" %}
                     <span>Congratulations! </span>
                 {% elif s == "You Lost!" %}
