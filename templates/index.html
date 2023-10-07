@@ -84,14 +84,14 @@
         </form>
         <div class="container-fluid conditionals">
             {% if s %}
-                {% if s == "You Won!" %}
-                    <span>Congratulations!</span>
+                {%if s == "You Won!" %}
+                    <span>Congratulations! </span>
                 {% elif s == "You Lost!" %}
                     <span>Oooopss!</span>
                 {% endif %}
                 {% print(s) %}
                 <p>Your score is</p>
-                <div class="score" style="font-size: 12px;">{{ p }}</div>
+                <div class="score">{{p}}</div>
             {% endif %}
         </div>
 
