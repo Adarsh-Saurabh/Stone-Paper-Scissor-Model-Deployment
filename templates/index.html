@@ -1,107 +1,85 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script src="https://kit.fontawesome.com/d59016f14e.js" crossorigin="anonymous"></script>
-
   <title>Stone Paper Scissor</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
-<body>
-
-  <div class="container text-center">
-    <div class="row">
-
-      <h1 class="m-auto p-3 border border-success">Stone Paper Scissor</h1>
-      <div class="container">
-      </div>
+<body class="bg-black-100 font-sans">
+  <div id="particles-js"></div>
+  <div class="container mx-auto text-center p-8">
+    <h1 class="text-4xl font-bold border border-green-500 p-4 rounded">Stone Paper Scissors</h1>
+    <div class="mt-8">
+      <h2 class="text-2xl">Welcome to the Game!</h2>
+      <p class="text-600">Here you are playing against the computer using pseudo AI.
+        Let's see who's gonna win this game. Good luck!</p>
     </div>
-    <div class="container">
-
-      <div class="row">
-        <div class="col-md-12">
-
-          <h2>Welcome to the game</h2>
-          <p>Here you are playing against the computer
-            We used a pseudo AI for this game
-            This AI will play against you
-            Let's see who's gonna win this game
-          </p>
-          <p>Good luck!</p>
-
-        </div>
+    <h3 class="mt-8 text-2xl">Choose One</h3>
+    <form id="form" class="mt-4 space-y-2">
+      <div class="radio-buttons-container flex justify-center">
+        <label for="stone" class="radio-label inline-block">
+          <input type="radio" name="value" value="s" id="stone" class="hidden">
+          <label for="stone"
+            class="radio-button inline-flex items-center justify-between w-full p-5 text-gray-500 bg-gray-100 border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+            <div class="block">
+              <div class="w-full text-lg font-semibold"><img src="{{ url_for('static', filename='img/stone.png') }}"
+                  alt="Stone" class="w-8 h-8 mr-2 ml-2">Stone</div>
+            </div>
+          </label>
+        </label>
+        <label for="paper" class="radio-label inline-block">
+          <input type="radio" name="value" value="p" id="paper" class="hidden">
+          <label for="paper"
+            class="radio-button inline-flex items-center justify-between w-full p-5 text-gray-500 bg-gray-100 border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+            <div class="block">
+              <div class="w-full text-lg font-semibold"><img src="{{ url_for('static', filename='img/paper.png') }}"
+                  alt="Paper" class="w-8 h-8 mr-2 ml-1">Paper</div>
+            </div>
+          </label>
+        </label>
+        <label for="scissor" class="radio-label inline-block">
+          <input type="radio" name="value" value="x" id="scissor" class="hidden">
+          <label for="scissor"
+            class="radio-button inline-flex items-center justify-between w-full p-5 text-gray-500 bg-gray-100 border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+            <div class="block">
+              <div class="w-full text-lg font-semibold"><img src="{{ url_for('static', filename='img/scissors.png') }}"
+                  alt="Scissor" class="w-8 h-8 mr-2 ml-3">Scissors</div>
+            </div>
+          </label>
+        </label>
       </div>
-    </div>
-
-    <h3>Choose One</h3>
-
-
-    <form action="/submit" method="POST" onsubmit="return validateForm()">
-      <input type="radio" name="value" value="s" id="stone">
-      <label for="stone"><span class="fas fa-gem"></span> Stone</label>
-      <input type="radio" name="value" value="p" id="paper">
-      <label for="paper"><span class="fas fa-scroll"></span> Paper</label>
-      <input type="radio" name="value" value="x" id="scissor">
-      <label for="scissor"><span class="fas fa-hand-scissors"></span> Scissor</label>
-      <br>
-      <input type="submit" value="Submit">
+      <input type="submit" value="Play"
+        class="bg-green-500 text-white py-2 px-4 rounded cursor-pointer hover:bg-green-600 transition duration-300">
     </form>
-
-    <!-- <br><br> -->
-
-    <div class="container-fluid conditonals">
-      {% if s %}
-
-      {%if s == "You Won!" %}
-      <span>Congratulations! </span>
-
-      {% elif s == "You Lost!" %}
-      <span>Oooopss!</span>
-
-      {% endif %}
-
-      {% print(s) %}
-      <p> Your score is </p>
-      {% print(p) %}
-
-      {% endif %}
+    <div id="error-message" class="text-red-600 mt-4"></div>
+    <div id="message" class="text-2xl mt-8"></div>
+    <div class="mt-8">
+      <p class="text-2xl">Your Score:</p>
+      <span id="conditional-points" class="text-4xl font-bold">0</span>
     </div>
-
-    <footer class="text-center contaner-fluid">
-      <span>Do open source contribution </span>
-      <a href="https://github.com/Adarsh-Saurabh/Stone-Paper-Scissor-Model-Deployment.git" target="_blank">here!</a>
+    <footer class="mt-8 bg-gray-900 text-white py-4">
+      <p class="text-xl">Do open-source contribution</p>
+      <a href="https://github.com/Adarsh-Saurabh/Stone-Paper-Scissor-Model-Deployment.git"
+        class="text-blue-400 hover:text-blue-200" target="_blank">here!</a>
     </footer>
-
-
-
-    <!-- <button type="button" class="btn btn-secondary">Stone</button>
-    <button type="button" class="btn btn-primary">Paper</button>
-    <button type="button" class="btn btn-success">Scissor</button>  -->
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"></script>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
 
 </html>

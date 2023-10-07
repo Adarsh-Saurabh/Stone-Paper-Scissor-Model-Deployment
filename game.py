@@ -12,11 +12,11 @@ def game(player):
     else:
         return "Invalid Input!"
     if (player == 1 and rand == 1) or (player == 2 and rand == 2) or (player == 3 and rand == 3):
-        return "Draw", 0
+        return "Draw...", 0, rand
     elif (player == 2 and rand == 1) or (player == 3 and rand == 2) or (player == 1 and rand == 3):
-        return "You Won!", 1
+        return "You Won!", 1, rand
     elif (player == 1 and rand == 2) or (player == 2 and rand == 3) or (player == 3 and rand == 1):
-        return "You Lost!", -1
+        return "You Lost :(", -1, rand
 
 
 

@@ -1,4 +1,4 @@
-from flask import Flask , render_template, request
+from flask import Flask , render_template, request, jsonify
 # from flask_sqlalchemy import SQLAlchemy
 import os
 import game as g
@@ -17,19 +17,14 @@ def submit():
     value = request.form.get("value")
 
     if value is None:
-        return render_template('index.html', s="Please select a valid input.", p=point)
+        return jsonify({"error": "Please select a valid input"})
 
     scores = g.game(value)
     score = str(scores[0])
-    
-    if score == "You Lost!":
-        points = "0"
-        point = 0
-    else:
-        point += scores[1]
-        points = str(point)
-        
-    return render_template('index.html', s=score, p=points)
+    point += scores[1]
+    points = str(point)
+
+    return jsonify({"score": score, "points": points, "bot": scores[2]})
 
 
 if __name__ == '__main__':

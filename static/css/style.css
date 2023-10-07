@@ -1,46 +1,118 @@
+/* Custom CSS for additional styles */
 body {
-    background: #d7ecf3;
-  }
+  font-family: 'Roboto Mono', monospace;
+  background-color: #1e242f;
+  color: #e2e8f0; /* Light gray text color */
+}
 
-  h1 {
-    font-size: 72px;
-    font-family: 'Roboto Mono', monospace;
-    font-weight: 900;
-  }
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: rgba(45, 55, 72, 0.85); /* Adjust the alpha value (0.9) for the desired transparency */
+  border-radius: 0.5rem;
+}
 
-  h2 {
-    font-size: 48px;
-  }
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a73e8; /* Blue header color */
+  border: 2px solid #185abc; /* Dark blue border */
+  padding: 10px;
+  border-radius: 0.25rem;
+  background-color: #e2e8f0; /* Light gray header background */
+}
 
-  form label,
-  form input[type="submit"] {
-    border: 1px solid green;
-    background: lightcoral;
-    color: gold;
-    padding: 5px 10px;
-    margin: 5px;
-  }
+h2 {
+  font-size: 1.5rem;
+  color: #1a73e8; /* Blue subheader color */
+}
 
-  form input[type="submit"] {
-    background: green;
-    border: 1px solid red;
-    padding: 5px 20px
-  }
+p {
+  color: #e2e8f0; /* Light gray text color */
+}
 
-  footer {
-    background: brown;
-    color: white;
-    padding: 50px 0;
-  }
+label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
 
-  .fa-gem {
-    color: blue;
-  }
+input[type="radio"] {
+  display: none;
+}
 
-  .fa-scroll {
-    color: white;
-  }
+.radio-label {
+  cursor: pointer;
+  border: 2px solid transparent;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  transition: all 0.2s;
+}
 
-  .fa-hand-scissors {
-    color: brown;
-  }
+.radio-label:hover {
+  border-color: #185abc; /* Dark blue border on hover */
+  background-color: #1a73e8; /* Blue background on hover */
+}
+
+.radio-input:checked + .radio-label {
+  border-color: #185abc; /* Dark blue border when selected */
+  background-color: #1a73e8; /* Blue background when selected */
+}
+
+.radio-label.peer-checked {
+  background-color: #1a73e8; /* Blue background when peer-checked */
+}
+
+input[type="submit"] {
+  background-color: #1a73e8; /* Blue submit button background */
+  color: #fff; /* White text color */
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  margin-top: 1rem; /* Spacing between radio buttons and submit button */
+}
+
+input[type="submit"]:hover {
+  background-color: #185abc; /* Darker blue on hover */
+  transition-duration: 0.3s;
+  transition-property: "background-color";
+}
+
+.error-message {
+  color: #e53e3e; /* Red error message color */
+  font-weight: bold;
+  margin-top: 0.5em;
+}
+
+.conditonals {
+  margin-top: 0.5em;
+  font-size: 0.875em;
+  color: #e2e8f0; /* Light gray conditional text color */
+}
+
+.footer {
+  background-color: #202124; /* Dark footer background */
+  color: #fff; /* White footer text color */
+  padding: 0.5em;
+}
+
+.fa-gem,
+.fa-scroll,
+.fa-hand-scissors {
+  color: #1a73e8; /* Blue icon color */
+}
+
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+
